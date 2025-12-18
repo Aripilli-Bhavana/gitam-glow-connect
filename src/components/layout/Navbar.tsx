@@ -14,10 +14,10 @@ import { useState } from 'react';
 
 const navLinks = [
   { name: 'Home', path: '/' },
-  { name: 'Features', path: '/#features' },
-  { name: 'Personalized Career', path: '/career-tools' },
-  { name: 'Internships', path: '/opportunities' },
-  { name: 'Placements', path: '/opportunities' },
+  { name: 'Career Path', path: '/career-path' },
+  { name: 'Resume Parser', path: '/resume-parser' },
+  { name: 'Internships', path: '/internships' },
+  { name: 'Mentors', path: '/mentors' },
 ];
 
 export function Navbar() {

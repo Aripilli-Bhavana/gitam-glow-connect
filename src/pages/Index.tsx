@@ -109,7 +109,7 @@ export default function Index() {
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link to="/#features">Explore Features</Link>
+                <a href="#features">Explore Features</a>
               </Button>
             </div>
           </div>
