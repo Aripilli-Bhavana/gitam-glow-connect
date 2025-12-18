@@ -49,6 +49,66 @@ export type Database = {
           },
         ]
       }
+      internship_postings: {
+        Row: {
+          apply_link: string | null
+          company: string
+          company_logo_url: string | null
+          created_at: string | null
+          deadline: string | null
+          description: string | null
+          id: string
+          is_women_focused: boolean | null
+          location: string | null
+          posted_by: string | null
+          reviewed_at: string | null
+          reviewed_by: string | null
+          status: string
+          stipend: string | null
+          title: string
+          type: string
+          updated_at: string | null
+        }
+        Insert: {
+          apply_link?: string | null
+          company: string
+          company_logo_url?: string | null
+          created_at?: string | null
+          deadline?: string | null
+          description?: string | null
+          id?: string
+          is_women_focused?: boolean | null
+          location?: string | null
+          posted_by?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: string
+          stipend?: string | null
+          title: string
+          type?: string
+          updated_at?: string | null
+        }
+        Update: {
+          apply_link?: string | null
+          company?: string
+          company_logo_url?: string | null
+          created_at?: string | null
+          deadline?: string | null
+          description?: string | null
+          id?: string
+          is_women_focused?: boolean | null
+          location?: string | null
+          posted_by?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: string
+          stipend?: string | null
+          title?: string
+          type?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       meetings: {
         Row: {
           created_at: string | null
@@ -318,12 +378,72 @@ export type Database = {
         }
         Relationships: []
       }
+      skill_roadmaps: {
+        Row: {
+          category: string
+          created_at: string | null
+          description: string | null
+          difficulty: string | null
+          estimated_duration: string | null
+          id: string
+          steps: Json
+          title: string
+        }
+        Insert: {
+          category: string
+          created_at?: string | null
+          description?: string | null
+          difficulty?: string | null
+          estimated_duration?: string | null
+          id?: string
+          steps?: Json
+          title: string
+        }
+        Update: {
+          category?: string
+          created_at?: string | null
+          description?: string | null
+          difficulty?: string | null
+          estimated_duration?: string | null
+          id?: string
+          steps?: Json
+          title?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string | null
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
       announcement_category:
@@ -331,6 +451,7 @@ export type Database = {
         | "opportunity"
         | "recruitment"
         | "general"
+      app_role: "student" | "faculty" | "mentor" | "admin"
       meeting_status: "scheduled" | "completed" | "cancelled" | "upcoming"
       mentor_availability: "online" | "busy" | "offline"
       user_role: "student" | "mentor" | "admin"
@@ -467,6 +588,7 @@ export const Constants = {
         "recruitment",
         "general",
       ],
+      app_role: ["student", "faculty", "mentor", "admin"],
       meeting_status: ["scheduled", "completed", "cancelled", "upcoming"],
       mentor_availability: ["online", "busy", "offline"],
       user_role: ["student", "mentor", "admin"],

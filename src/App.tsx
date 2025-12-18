@@ -7,6 +7,10 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
+import Internships from "./pages/Internships";
+import ResumeParser from "./pages/ResumeParser";
+import Mentors from "./pages/Mentors";
+import CareerPath from "./pages/CareerPath";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,9 +26,13 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/internships" element={<Internships />} />
+            <Route path="/opportunities" element={<Internships />} />
+            <Route path="/resume-parser" element={<ResumeParser />} />
+            <Route path="/mentors" element={<Mentors />} />
+            <Route path="/career-path" element={<CareerPath />} />
+            <Route path="/career-tools" element={<CareerPath />} />
             <Route path="/community" element={<Dashboard />} />
-            <Route path="/career-tools" element={<Dashboard />} />
-            <Route path="/opportunities" element={<Dashboard />} />
             <Route path="/admin" element={<Dashboard />} />
             <Route path="/mentor-dashboard" element={<Dashboard />} />
             <Route path="/profile" element={<Dashboard />} />
